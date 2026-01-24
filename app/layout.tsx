@@ -12,25 +12,56 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// SEO Metadata for BidZone homepage
 export const metadata: Metadata = {
-  title: "BidZone | Authentic Auction Platform for Iraq",
-  description: "BidZone is a fast, secure Iraqi auction platform for authentic imported products, real-time bidding, and trusted sellers.",
+  title: "بيدزون – مزادات فورية على منتجات أصلية",
+  description: "بيدزون هي منصة مزادات إلكترونية في العراق تتيح لك شراء منتجات أصلية بأسعار تنافسية من خلال مزادات فورية وآمنة عبر تطبيق سهل وموثوق.",
+  authors: [{ name: "BidZone" }],
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
-    title: "BidZone | Authentic Auction Platform for Iraq",
-    description: "Fast, secure real-time auctions on authentic products. Join BidZone and start bidding now.",
-    url: "https://bidzone.iq",
+    title: "بيدزون – مزادات فورية على منتجات أصلية",
+    description: "بيدزون هي منصة مزادات إلكترونية في العراق تتيح لك شراء منتجات أصلية بأسعار تنافسية من خلال مزادات فورية وآمنة عبر تطبيق سهل وموثوق.",
+    url: "https://bidzone-iq.com",
     siteName: "BidZone",
-    locale: "ar",
+    locale: "ar_IQ",
     type: "website",
     images: [
       {
-        url: "https://via.placeholder.com/1200x630?text=BidZone",
-        width: 1200,
-        height: 630,
-        alt: "BidZone Auction Platform",
+        url: "https://bidzone-iq.com/images/hero/hero.webp",
+        width: 1600,
+        height: 800,
+        alt: "بيدزون - منصة المزادات الإلكترونية في العراق",
       },
     ],
   },
+};
+
+// JSON-LD Structured Data for SEO
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'SoftwareApplication',
+      name: 'بيدزون',
+      description: 'منصة مزادات فورية على منتجات أصلية بأسعار تنافسية في العراق',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Android, iOS',
+      url: 'https://bidzone-iq.com',
+    },
+    {
+      '@type': 'Organization',
+      name: 'BidZone',
+      url: 'https://bidzone-iq.com',
+      logo: 'https://bidzone-iq.com/images/logo.png',
+      areaServed: {
+        '@type': 'Country',
+        name: 'IQ',
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -39,7 +70,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl">
+    <html lang="ar-IQ" dir="rtl">
+      <head>
+        {/* Structured Data (JSON-LD) for Google Rich Results */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
