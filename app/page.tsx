@@ -619,9 +619,9 @@ export default function Home() {
               <h3 className="text-xl font-bold text-slate-900 mb-2">🌐 السوشيال ميديا</h3>
               <p className="text-slate-600 mb-3">تابعنا على منصات التواصل</p>
               <div className="flex items-center justify-center gap-4">
-                <a href="https://tiktok.com/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] inline-block focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded">TikTok</a>
-                <a href="https://instagram.com/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] inline-block focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded">Instagram</a>
-                <a href="https://facebook.com/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] inline-block focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded">Facebook</a>
+                <a href="https://www.tiktok.com/@bidzone_iq?_r=1&_t=ZS-92asx9NjR46" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] inline-block focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded">TikTok</a>
+                <a href="https://www.instagram.com/bidzone111?igsh=d3d4cDEzMnM0dXlp" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] inline-block focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=61584351075501" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] inline-block focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded">Facebook</a>
               </div>
             </div>
           </div>
@@ -1370,9 +1370,9 @@ export default function Home() {
                   <h3 className="text-xl font-bold text-slate-900 mb-2">🌐 Social Media</h3>
                   <p className="text-slate-600 mb-3">Follow us on social platforms</p>
                   <div className="flex items-center justify-center gap-4">
-                    <a href="https://tiktok.com/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] inline-block focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded">TikTok</a>
-                    <a href="https://instagram.com/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] inline-block focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded">Instagram</a>
-                    <a href="https://facebook.com/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] inline-block focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded">Facebook</a>
+                    <a href="https://www.tiktok.com/@bidzone_iq?_r=1&_t=ZS-92asx9NjR46" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] inline-block focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded">TikTok</a>
+                    <a href="https://www.instagram.com/bidzone111?igsh=d3d4cDEzMnM0dXlp" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] inline-block focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded">Instagram</a>
+                    <a href="https://www.facebook.com/profile.php?id=61584351075501" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] inline-block focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded">Facebook</a>
                   </div>
                 </div>
               </div>
