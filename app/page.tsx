@@ -848,11 +848,21 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Phone Mockup - Right Side (empty placeholder card) */}
+                {/* Hero Image - Right Side (LTR: appears on right) */}
                 <div className="order-2">
                   <FadeInWhenVisible staggerIndex={0}>
                     <ParallaxOnScroll yRange={[-20, 20]}>
-                      <div className="w-full h-72 sm:h-96 md:h-[28rem] max-w-xs sm:max-w-sm mx-auto rounded-3xl shadow-2xl bg-white"></div>
+                      {/* Hero image with landscape aspect ratio (16:9) - same as Arabic version */}
+                      <div className="relative w-full max-w-md sm:max-w-lg md:max-w-xl mx-auto aspect-[16/9] rounded-3xl shadow-2xl overflow-hidden">
+                        <Image
+                          src="/images/hero/hero.webp"
+                          alt="BidZone - Iraq's Leading Online Auction Platform"
+                          fill
+                          priority={true}
+                          className="object-cover"
+                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 512px, 576px"
+                        />
+                      </div>
                     </ParallaxOnScroll>
                   </FadeInWhenVisible>
                 </div>
@@ -1168,27 +1178,61 @@ export default function Home() {
                 Screenshots from the real BidZone app interface.
               </p>
 
-              {/* Screenshots Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+              {/* App Screenshots - Horizontal scroll on mobile, grid on tablet/desktop (same as Arabic) */}
+              <div className="
+                flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4
+                md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:snap-none md:pb-0 md:mx-0 md:px-0
+                lg:gap-10
+              " style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                 
-                {/* Screenshot 1 */}
-                <div className="rounded-[2.5rem] border shadow-2xl overflow-hidden w-full max-w-xs mx-auto fade-up" style={{animationDelay: '0s'}}>
+                {/* Screenshot 1 - Browse Auctions */}
+                <div className="
+                  flex-shrink-0 w-[75vw] max-w-[280px] snap-center
+                  md:w-full md:max-w-xs md:mx-auto
+                  rounded-[2.5rem] border shadow-2xl overflow-hidden fade-up
+                " style={{animationDelay: '0s'}}>
                   <ParallaxOnScroll yRange={[-15, 15]}>
-                    <Image src="https://via.placeholder.com/600x1200?text=Screenshot+1" alt="Screenshot 1" width={600} height={1200} className="w-full h-auto object-cover" priority />
+                    <Image
+                      src="/screenshots/app-screenshots-01-browse.webp"
+                      alt="Browse available auctions in BidZone app"
+                      width={600}
+                      height={1300}
+                      className="w-full h-auto object-cover"
+                    />
                   </ParallaxOnScroll>
                 </div>
 
-                {/* Screenshot 2 */}
-                <div className="rounded-[2.5rem] border shadow-2xl overflow-hidden w-full max-w-xs mx-auto fade-up" style={{animationDelay: '0.15s'}}>
+                {/* Screenshot 2 - Bidding */}
+                <div className="
+                  flex-shrink-0 w-[75vw] max-w-[280px] snap-center
+                  md:w-full md:max-w-xs md:mx-auto
+                  rounded-[2.5rem] border shadow-2xl overflow-hidden fade-up
+                " style={{animationDelay: '0.15s'}}>
                   <ParallaxOnScroll yRange={[-15, 15]}>
-                    <Image src="https://via.placeholder.com/600x1200?text=Screenshot+2" alt="Screenshot 2" width={600} height={1200} className="w-full h-auto object-cover" loading="lazy" />
+                    <Image
+                      src="/screenshots/app-screenshots-02-bid.webp"
+                      alt="Place bids on products"
+                      width={600}
+                      height={1300}
+                      className="w-full h-auto object-cover"
+                    />
                   </ParallaxOnScroll>
                 </div>
 
-                {/* Screenshot 3 */}
-                <div className="rounded-[2.5rem] border shadow-2xl overflow-hidden w-full max-w-xs mx-auto fade-up" style={{animationDelay: '0.3s'}}>
+                {/* Screenshot 3 - Winning */}
+                <div className="
+                  flex-shrink-0 w-[75vw] max-w-[280px] snap-center
+                  md:w-full md:max-w-xs md:mx-auto
+                  rounded-[2.5rem] border shadow-2xl overflow-hidden fade-up
+                " style={{animationDelay: '0.3s'}}>
                   <ParallaxOnScroll yRange={[-15, 15]}>
-                    <Image src="https://via.placeholder.com/600x1200?text=Screenshot+3" alt="Screenshot 3" width={600} height={1200} className="w-full h-auto object-cover" loading="lazy" />
+                    <Image
+                      src="/screenshots/app-screenshots-03-win.webp"
+                      alt="Win auctions and receive products"
+                      width={600}
+                      height={1300}
+                      className="w-full h-auto object-cover"
+                    />
                   </ParallaxOnScroll>
                 </div>
 
