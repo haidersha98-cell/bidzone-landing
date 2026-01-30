@@ -1,12 +1,54 @@
 "use client";
 
-import { useState, Fragment } from "react";
+import { useState, Fragment, useCallback } from "react";
 import FadeInWhenVisible from "@/components/animations/FadeInWhenVisible";
 import ParallaxOnScroll from "@/components/animations/ParallaxOnScroll";
 import Image from "next/image";
+import Snackbar from "@/components/Snackbar";
+import { isAndroid, isIOS } from "@/utils/device";
 
 export default function Home() {
   const [language, setLanguage] = useState<"ar" | "en">("ar");
+  const [snackbarVisible, setSnackbarVisible] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+
+  const GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=com.bidzone.app";
+  const APP_STORE_URL = "#"; // Placeholder for future App Store URL
+
+  const handleDownload = useCallback(() => {
+    if (isAndroid()) {
+      window.open(GOOGLE_PLAY_URL, "_blank");
+    } else if (isIOS()) {
+      const message = language === "ar" 
+        ? "سيتوفر قريبًا على App Store" 
+        : "Coming soon on the App Store";
+      setSnackbarMessage(message);
+      setSnackbarVisible(true);
+    } else {
+      // Desktop: default to Google Play
+      window.open(GOOGLE_PLAY_URL, "_blank");
+    }
+  }, [language]);
+
+  const handleGooglePlayClick = useCallback(() => {
+    if (isIOS()) {
+      const message = language === "ar" 
+        ? "سيتوفر قريبًا على App Store" 
+        : "Coming soon on the App Store";
+      setSnackbarMessage(message);
+      setSnackbarVisible(true);
+    } else {
+      window.open(GOOGLE_PLAY_URL, "_blank");
+    }
+  }, [language]);
+
+  const handleAppStoreClick = useCallback(() => {
+    const message = language === "ar" 
+      ? "سيتوفر قريبًا على App Store" 
+      : "Coming soon on the App Store";
+    setSnackbarMessage(message);
+    setSnackbarVisible(true);
+  }, [language]);
 
   return (
     <div className="min-h-screen bg-white" dir={language === "ar" ? "rtl" : "ltr"}>
@@ -25,7 +67,10 @@ export default function Home() {
                 >
                   EN
                 </button>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-2xl transition-all duration-200 font-semibold hover:scale-[1.02] active:scale-[0.97] shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                <button 
+                  onClick={handleDownload}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-2xl transition-all duration-200 font-semibold hover:scale-[1.02] active:scale-[0.97] shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                >
                   حمِّل التطبيق
                 </button>
               </div>
@@ -53,10 +98,16 @@ export default function Home() {
                   
                   {/* Download Buttons */}
                   <div className="fade-up-delay-2 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
-                    <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-2xl shadow-lg hover:shadow-xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                    <button 
+                      onClick={handleGooglePlayClick}
+                      className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-2xl shadow-lg hover:shadow-xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                    >
                       تحميل من Google Play
                     </button>
-                    <button className="w-full sm:w-auto border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3.5 rounded-2xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                    <button 
+                      onClick={handleAppStoreClick}
+                      className="w-full sm:w-auto border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3.5 rounded-2xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                    >
                       تحميل من App Store
                     </button>
                   </div>
@@ -742,10 +793,16 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-2xl shadow-lg hover:shadow-xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+            <button 
+              onClick={handleGooglePlayClick}
+              className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-2xl shadow-lg hover:shadow-xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            >
               تحميل من Google Play
             </button>
-            <button className="w-full sm:w-auto border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3.5 rounded-2xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+            <button 
+              onClick={handleAppStoreClick}
+              className="w-full sm:w-auto border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3.5 rounded-2xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            >
               تحميل من App Store
             </button>
           </div>
@@ -813,7 +870,10 @@ export default function Home() {
                 >
                   AR
                 </button>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-2xl transition-all duration-200 font-semibold hover:scale-[1.02] active:scale-[0.97] shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                <button 
+                  onClick={handleDownload}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-2xl transition-all duration-200 font-semibold hover:scale-[1.02] active:scale-[0.97] shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                >
                   Download App
                 </button>
               </div>
@@ -839,10 +899,16 @@ export default function Home() {
                   
                   {/* Download Buttons */}
                   <div className="fade-up-delay-2 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
-                    <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-2xl shadow-lg hover:shadow-xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                    <button 
+                      onClick={handleGooglePlayClick}
+                      className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-2xl shadow-lg hover:shadow-xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                    >
                       Download from Google Play
                     </button>
-                    <button className="w-full sm:w-auto border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3.5 rounded-2xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                    <button 
+                      onClick={handleAppStoreClick}
+                      className="w-full sm:w-auto border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3.5 rounded-2xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                    >
                       Download from App Store
                     </button>
                   </div>
@@ -1478,10 +1544,16 @@ export default function Home() {
           <section className="py-16 bg-white">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-2xl shadow-lg hover:shadow-xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                <button 
+                  onClick={handleGooglePlayClick}
+                  className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-2xl shadow-lg hover:shadow-xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                >
                   Download on Google Play
                 </button>
-                <button className="w-full sm:w-auto border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3.5 rounded-2xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                <button 
+                  onClick={handleAppStoreClick}
+                  className="w-full sm:w-auto border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3.5 rounded-2xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                >
                   Download on App Store
                 </button>
               </div>
@@ -1530,6 +1602,12 @@ export default function Home() {
   </Fragment>
       )}
 
+      {/* Snackbar for iOS notification */}
+      <Snackbar
+        message={snackbarMessage}
+        isVisible={snackbarVisible}
+        onClose={() => setSnackbarVisible(false)}
+      />
     </div>
   );
 }
