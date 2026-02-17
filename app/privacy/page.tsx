@@ -144,7 +144,26 @@ export default function PrivacyPolicyPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">9. التواصل</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">9. الإعلانات وقياس الأداء (Tracking & Analytics)</h2>
+                <p>يستخدم تطبيق BidZone أدوات تحليل وقياس أداء الحملات الإعلانية مثل:</p>
+                <ul className="list-disc pr-6 space-y-2 mt-3">
+                  <li>Meta (Facebook) App Events</li>
+                  <li>TikTok Events SDK</li>
+                  <li>Firebase Analytics</li>
+                </ul>
+                <p className="mt-4">قد نقوم بجمع معرف الإعلانات الخاص بجهاز Apple (IDFA) بعد موافقة المستخدم عبر نافذة إذن التتبع (App Tracking Transparency – ATT).</p>
+                <p className="mt-4">يُستخدم هذا المعرف فقط لـ:</p>
+                <ul className="list-disc pr-6 space-y-2 mt-3">
+                  <li>قياس فعالية الحملات الإعلانية</li>
+                  <li>تحسين استهداف الإعلانات</li>
+                  <li>تحليل أداء التطبيق</li>
+                </ul>
+                <p className="mt-4">يمكنك رفض التتبع من خلال نافذة النظام، ولن يؤثر ذلك على قدرتك على استخدام التطبيق.</p>
+                <p className="mt-4 font-semibold">لا نقوم ببيع بياناتك لأي طرف ثالث.</p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">10. التواصل</h2>
                 <p>للاستفسارات المتعلقة بالخصوصية:</p>
                 <p className="mt-2">📧 <a href="mailto:info@bidzone-iq.com" className="text-blue-600 hover:underline">info@bidzone-iq.com</a></p>
               </section>
@@ -261,7 +280,26 @@ export default function PrivacyPolicyPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">9. Contact</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">9. Tracking & Analytics</h2>
+                <p>BidZone uses analytics and advertising campaign measurement tools such as:</p>
+                <ul className="list-disc pl-6 space-y-2 mt-3">
+                  <li>Meta (Facebook) App Events</li>
+                  <li>TikTok Events SDK</li>
+                  <li>Firebase Analytics</li>
+                </ul>
+                <p className="mt-4">We may collect the Apple Advertising Identifier (IDFA) after user consent through the App Tracking Transparency (ATT) permission prompt.</p>
+                <p className="mt-4">This identifier is used only for:</p>
+                <ul className="list-disc pl-6 space-y-2 mt-3">
+                  <li>Measuring advertising campaign effectiveness</li>
+                  <li>Improving ad targeting</li>
+                  <li>Analyzing app performance</li>
+                </ul>
+                <p className="mt-4">You can decline tracking through the system prompt, and this will not affect your ability to use the app.</p>
+                <p className="mt-4 font-semibold">We do not sell your data to any third party.</p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">10. Contact</h2>
                 <p>For privacy-related inquiries:</p>
                 <p className="mt-2">📧 <a href="mailto:info@bidzone-iq.com" className="text-blue-600 hover:underline">info@bidzone-iq.com</a></p>
               </section>
