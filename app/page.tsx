@@ -13,42 +13,31 @@ export default function Home() {
   const [snackbarMessage, setSnackbarMessage] = useState("");
 
   const GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=com.bidzone.app";
-  const APP_STORE_URL = "#"; // Placeholder for future App Store URL
+  const APP_STORE_URL = "https://apps.apple.com/us/app/bidzone/id6759258052";
 
   const handleDownload = useCallback(() => {
     if (isAndroid()) {
       window.open(GOOGLE_PLAY_URL, "_blank");
     } else if (isIOS()) {
-      const message = language === "ar" 
-        ? "سيتوفر قريبًا على App Store" 
-        : "Coming soon on the App Store";
-      setSnackbarMessage(message);
-      setSnackbarVisible(true);
+      window.open(APP_STORE_URL, "_blank");
     } else {
       // Desktop: default to Google Play
       window.open(GOOGLE_PLAY_URL, "_blank");
     }
-  }, [language]);
+  }, []);
 
   const handleGooglePlayClick = useCallback(() => {
     if (isIOS()) {
-      const message = language === "ar" 
-        ? "سيتوفر قريبًا على App Store" 
-        : "Coming soon on the App Store";
-      setSnackbarMessage(message);
-      setSnackbarVisible(true);
+      // Redirect iOS users to App Store
+      window.open(APP_STORE_URL, "_blank");
     } else {
       window.open(GOOGLE_PLAY_URL, "_blank");
     }
-  }, [language]);
+  }, []);
 
   const handleAppStoreClick = useCallback(() => {
-    const message = language === "ar" 
-      ? "سيتوفر قريبًا على App Store" 
-      : "Coming soon on the App Store";
-    setSnackbarMessage(message);
-    setSnackbarVisible(true);
-  }, [language]);
+    window.open(APP_STORE_URL, "_blank");
+  }, []);
 
   return (
     <div className="min-h-screen bg-white" dir={language === "ar" ? "rtl" : "ltr"}>
