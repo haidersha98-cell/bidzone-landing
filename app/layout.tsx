@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   title: "بيدزون – مزادات فورية على منتجات أصلية",
   description: "بيدزون هي منصة مزادات إلكترونية في العراق تتيح لك شراء منتجات أصلية بأسعار تنافسية من خلال مزادات فورية وآمنة عبر تطبيق سهل وموثوق.",
   authors: [{ name: "BidZone" }],
+  verification: {
+    other: {
+      "facebook-domain-verification": "3e4tjmudtxyw487jdg19c6bw5awwj",
+    },
+  },
   robots: {
     index: true,
     follow: true,
